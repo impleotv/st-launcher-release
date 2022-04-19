@@ -24,11 +24,16 @@ let DATA = {
 };
 
 function generateReadMe() {
-  fs.readFile(MUSTACHE_MAIN, (err, data) =>  {
-    if (err) throw err;
-    const output = Mustache.render(data.toString(), DATA);
-    fs.writeFileSync('../README.md', output);
-  });
+  console.log('Generating README.md');
+  try {
+    fs.readFile(MUSTACHE_MAIN, (err, data) =>  {
+      if (err) throw err;
+      const output = Mustache.render(data.toString(), DATA);
+      fs.writeFileSync('../README.md', output);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 generateReadMe();
