@@ -76,12 +76,13 @@ jobs:
         run: |
           tree -L 2 ${{ github.workspace }}
 
-      - name: Clean up
-        run: |
-          rm -rf ./st-launcher
-          rm -rf ./st-launcher-release
+      # - name: Clean up
+      #   run: |
+      #     rm -rf ./st-launcher
+      #     rm -rf ./st-launcher-release
 
-      - name: Commit and Push new README.md to the repository
-        uses: mikeal/publish-to-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: 'Add modified README.md'
+          add: 'README.md --force'
+          cwd: './st-launcher-release/'
