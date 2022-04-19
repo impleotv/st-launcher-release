@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: ./st-launcher
-        
+
       - name: Build
         run: npm run pkgLinux
         working-directory: ./st-launcher
@@ -48,27 +48,27 @@ jobs:
           artifacts: "./st-launcher/st-launcher.run, ./st-launcher/CHANGELOG.md, ./st-launcher/README.md"       
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Checkout code
-      #   uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # - name: Setup NodeJs 16.x
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: '16.x'
-      # - name: Cache dependencies and build outputs to improve workflow execution time.
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: node_modules
-      #     key: ${{ runner.os }}-js-${{ hashFiles('package-lock.json') }}
-      # - name: Install dependencies
-      #   run: npm install
-      # - name: Set env
-      #   run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-      # - name: Test
-      #   run: |
-      #     echo $RELEASE_VERSION
-      #     echo ${{ env.RELEASE_VERSION }}
-      # - name: Generate README file
-      #   run: node index.js ${{env.RELEASE_VERSION }}
+      - name: Setup NodeJs 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - name: Cache dependencies and build outputs to improve workflow execution time.
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-js-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
+        run: npm install
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Test
+        run: |
+          echo $RELEASE_VERSION
+          echo ${{ env.RELEASE_VERSION }}
+      - name: Generate README file
+        run: node index.js ${{env.RELEASE_VERSION }}
 
 
