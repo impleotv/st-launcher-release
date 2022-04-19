@@ -8,7 +8,7 @@ if (args.length === 0) {
   console.log('Please enter a version number');
 }
 
-const pjsonLauncher = JSON.parse(fs.readFileSync('./st-launcher/package.json', 'utf8'));
+const pjsonLauncher = JSON.parse(fs.readFileSync('../st-launcher/package.json', 'utf8'));
 
 let DATA = {
   version: pjsonLauncher.version,
@@ -27,7 +27,7 @@ function generateReadMe() {
   fs.readFile(MUSTACHE_MAIN, (err, data) =>  {
     if (err) throw err;
     const output = Mustache.render(data.toString(), DATA);
-    fs.writeFileSync('README.md', output);
+    fs.writeFileSync('../README.md', output);
   });
 }
 
