@@ -50,7 +50,7 @@ sudo chmod +x st-launcher.run
 |:---------|:-------------------:|:------------------------------------------------------------------------|
 | **st-launcher** |  1.0.0 | [st-launcher.run](https://github.com/impleotv/st-launcher-release/releases/download/v1.0.0/st-launcher.run) | 
 
-*Released on Tue, 19 Apr, 16:54 GMT+3*
+*Released on Tue, 19 Apr, 17:01 GMT+3*
 
 ## Docs
 
