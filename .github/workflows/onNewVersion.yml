@@ -54,20 +54,6 @@ jobs:
           artifacts: "./st-launcher/st-launcher.run, ./st-launcher/CHANGELOG.md, ./st-launcher/README.md"       
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Checkout code
-      #   uses: actions/checkout@v3
-      #   with:
-      #     clean: false
-
-      # - name: Setup NodeJs 16.x
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: '16.x'
-      # - name: Cache dependencies and build outputs to improve workflow execution time.
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: node_modules
-      #     key: ${{ runner.os }}-js-${{ hashFiles('package-lock.json') }}
       - name: Install dependencies
         run: npm install
         working-directory: ./st-launcher-release  
@@ -86,4 +72,16 @@ jobs:
         run: node index.js ${{env.RELEASE_VERSION }}
         working-directory: ./st-launcher-release  
 
+      - name: List files in the repository
+        run: |
+          tree -L 2 ${{ github.workspace }}
 
+      - name: Clean up
+        run: |
+          rm -rf ./st-launcher
+          rm -rf ./st-launcher-release
+
+      - name: Commit and Push new README.md to the repository
+        uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
