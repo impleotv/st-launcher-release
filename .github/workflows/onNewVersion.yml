@@ -50,6 +50,7 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
           clean: false
 
       - name: Setup NodeJs 16.x
