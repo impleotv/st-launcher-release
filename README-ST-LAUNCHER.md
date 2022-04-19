@@ -1,13 +1,22 @@
 # st-launcher
 Application launcher and updater.  
-**St-Launcher** allows you to install, start/stop and update the applications. Commands can be entered manually, with command prompt or via REST interface, over HTTP.
+**St-Launcher** allows you to install, start/stop and update applications. Commands can be entered manually, using command prompt or via REST interface, over HTTP.
+
+## Getting started
+
+**St-Launcher** is provided as an executable. 
+
+[Download links and instructions](https://github.com/impleotv/st-launcher-release)
+
+## Commands
 
 **St-Launcher** supports the following commands:  
-- Install
-- Start
-- Stop
-- Update
-## Install
+- Install  
+- Start  
+- Stop  
+- Update  
+
+### Install
 
 Install an application.  
 
@@ -22,9 +31,7 @@ The following steps will be executed:
 
 > Note, by default, the installer file will be saved in the current directory. If you want to change the location, please modify the property **workingDir** in the *\data\st-launcher-config.json* file. This file will be created on the first run of the application.
 
-
-
-## Start
+### Start
 
 Start the application.  
 
@@ -35,7 +42,7 @@ start
 The following steps will be executed:
 - Run **startCmd** defined in **application** section of the */data/st-launcher-config.json* in the directory specified in the **workingDir** property 
 
-## Stop
+### Stop
 
 Stop the application.  
 
@@ -47,7 +54,7 @@ The following steps will be executed:
 - Run **stopCmd** defined in **application** section of the */data/st-launcher-config.json* in the directory specified in the **workingDir** property 
 
 
-## Update
+### Update
 
 Update the application.  
 
