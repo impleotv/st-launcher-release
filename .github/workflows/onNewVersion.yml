@@ -68,6 +68,11 @@ jobs:
         run: |
           echo $RELEASE_VERSION
           echo ${{ env.RELEASE_VERSION }}
+
+      - name: List files in the repository
+        run: |
+          tree -L 2 ${{ github.workspace }}
+
       - name: Generate README file
         run: node index.js ${{env.RELEASE_VERSION }}
 
