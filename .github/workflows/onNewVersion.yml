@@ -21,6 +21,10 @@ jobs:
           token: ${{ secrets.TOKEN }}
           path: ./st-launcher          
 
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+
       - name: List files in the repository
         run: |
           tree ${{ github.workspace }}
@@ -53,15 +57,15 @@ jobs:
         with:
           clean: false
 
-      - name: Setup NodeJs 16.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-      - name: Cache dependencies and build outputs to improve workflow execution time.
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-js-${{ hashFiles('package-lock.json') }}
+      # - name: Setup NodeJs 16.x
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '16.x'
+      # - name: Cache dependencies and build outputs to improve workflow execution time.
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: node_modules
+      #     key: ${{ runner.os }}-js-${{ hashFiles('package-lock.json') }}
       - name: Install dependencies
         run: npm install
       - name: Set env
