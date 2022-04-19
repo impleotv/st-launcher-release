@@ -28,10 +28,12 @@ jobs:
       - name: Setup NodeJs 16.x
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'  
+          node-version: '16.x'
+
       - name: Install dependencies
         run: npm install
         working-directory: ./st-launcher
+        
       - name: Build
         run: npm run pkgLinux
         working-directory: ./st-launcher
