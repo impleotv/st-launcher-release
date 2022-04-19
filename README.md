@@ -23,7 +23,7 @@ OS: Linux x64.
 1. Download 
 
 ```
-wget https://github.com/impleotv/st-launcher-release/releases/download/1.0.0/st-launcher.run
+wget https://github.com/impleotv/st-launcher-release/releases/download/v1.0.0/st-launcher.run
 ```
 or get it from the [Releases](https://github.com/impleotv/st-launcher-release/releases)
 
@@ -50,7 +50,7 @@ sudo chmod +x st-launcher.run
 |:---------|:-------------------:|:------------------------------------------------------------------------|
 | **st-launcher** |  1.0.0 | [st-launcher.run](https://github.com/impleotv/st-launcher-release/releases/download/v1.0.0/st-launcher.run) | 
 
-*Released on Tue, 19 Apr, 17:01 GMT+3*
+*Released on Tue, 19 Apr, 17:06 GMT+3*
 
 ## Docs
 
