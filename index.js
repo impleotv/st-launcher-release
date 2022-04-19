@@ -8,11 +8,10 @@ if (args.length === 0) {
   console.log('Please enter a version number');
 }
 
-//const pjsonLauncher = JSON.parse(fs.readFileSync('./st-launcher/package.json', 'utf8'));
+const pjsonLauncher = JSON.parse(fs.readFileSync('./st-launcher/package.json', 'utf8'));
 
 let DATA = {
-  //version: pjsonLauncher.version,
-  version: args[1],
+  version: pjsonLauncher.version,
   date: new Date().toLocaleDateString('en-IL', {
     weekday: 'short',
     month: 'short',
