@@ -40,6 +40,11 @@ jobs:
         run: |
           tree -L 2 ${{ github.workspace }}
 
+      - name: Create release    
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "./st-launcher/st-launcher.run, ./st-launcher/CHANGELOG.md, ./st-launcher/README.md"       
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Checkout code
       #   uses: actions/checkout@v2
