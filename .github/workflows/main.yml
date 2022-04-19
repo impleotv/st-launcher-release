@@ -1,0 +1,104 @@
+name: OnPushNewVersion
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Checkout stserver
+        uses: actions/checkout@v2
+        with:
+          repository: impleotv/stserver2
+          token: ${{ secrets.TOKEN }}
+          path: ./stserver2
+       
+      - name: Copy CHANGELOG.md from stserver2 and create install
+        run: |
+          mkdir ./components
+          cp ./stserver2/CHANGELOG.md ./CHANGELOG-SERVER.md 
+          cp ./stserver2/package.json ./components/package-server.json
+          mkdir ./stserver2/installDist
+          cd ./stserver2/install
+          tar -czvf ../installDist/stserver-install.tar.gz . 
+          sleep 5               
+          cd ../../
+          cp ./stserver2/installDist/stserver-install.tar.gz  ./
+          rm -rf ./stserver2
+
+      - name: Checkout frontend
+        uses: actions/checkout@v2
+        with:
+          repository: impleotv/stserver2-frontend
+          token: ${{ secrets.TOKEN }}
+          path: ./frontend
+       
+      - name: Copy CHANGELOG.md from frontend
+        run: |
+          cp ./frontend/CHANGELOG.md ./CHANGELOG-FRONTEND.md 
+          cp ./frontend/package.json ./components/package-frontend.json        
+          rm -rf ./frontend
+      
+      - name: Checkout stserver-frontend-comp
+        uses: actions/checkout@v2
+        with:
+          repository: impleotv/stserver-frontend-comp
+          token: ${{ secrets.TOKEN }}
+          path: ./stserver-frontend-comp
+       
+      - name: Copy CHANGELOG.md from stserver-frontend-comp
+        run: |
+          cp ./stserver-frontend-comp/CHANGELOG.md ./CHANGELOG-FRONTEND-COMP.md
+          cp ./stserver-frontend-comp/package.json ./components/package-frontend-comp.json  
+          rm -rf ./stserver-frontend-comp
+
+      - name: List files in the repository
+        run: |
+          tree ${{ github.workspace }}
+
+      - name: Setup NodeJs 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Cache dependencies and build outputs to improve workflow execution time.
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-js-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
+        run: npm install
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Test
+        run: |
+          echo $RELEASE_VERSION
+          echo ${{ env.RELEASE_VERSION }}       
+      - name: Generate README file
+        run: node index.js ${{env.RELEASE_VERSION }}
+
+      - name: Clean up
+        run: |
+          rm -rf ./components
+
+      - name: Commit and Push new README.md to the repository
+        uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create release    
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "stserver-install.tar.gz, CHANGELOG-SERVER.md,CHANGELOG-FRONTEND.md,CHANGELOG-FRONTEND-COMP.md"       
+          token: ${{ secrets.GITHUB_TOKEN }}
+        
