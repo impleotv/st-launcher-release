@@ -19,7 +19,7 @@ jobs:
         with:
           repository: impleotv/st-launcher
           token: ${{ secrets.TOKEN }}
-          path: ./          
+          path: ./st-launcher          
 
       - name: List files in the repository
         run: |
@@ -31,12 +31,14 @@ jobs:
           node-version: '16.x'  
       - name: Install dependencies
         run: npm install
+        working-directory: ./st-launcher
       - name: Build
         run: npm run pkgLinux
+        working-directory: ./st-launcher
 
       - name: List files in the repository
         run: |
-          tree ${{ github.workspace }}
+          tree -L 2 ${{ github.workspace }}
 
 
       # - name: Checkout code
