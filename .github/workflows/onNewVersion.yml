@@ -81,5 +81,5 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           message: 'Update README.md to ${{ env.RELEASE_VERSION }}'
-          add: 'README.md'
+          add: '*.md'
           push: origin HEAD:master
