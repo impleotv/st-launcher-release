@@ -1,6 +1,6 @@
 # Using crontab to run st-launcher on startup
 
-1\. Create a simple script **run-on-reboot.sh** and copy it to the location of the application, for example */home/myuser/sterver*:
+1\. Create a simple script **run-on-reboot.sh** and copy it to the location of the application, for example */home/myuser/stserver*:
 
 ```bash
 #!/bin/bash
@@ -22,6 +22,6 @@ sudo crontab -e
 Make script run on startup by adding the following line
 
 ```bash
-@reboot sleep 30 && cd /home/myuser/sterver && ./run-on-reboot.sh
+@reboot sleep 30 && cd /home/myuser/stserver && ./run-on-reboot.sh
 ```
 
