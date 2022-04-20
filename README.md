@@ -44,12 +44,6 @@ sudo chmod +x st-launcher.run
 > By default, the REST interface will be available on port **8040**. 
 
 
-
-You may also consider making **st-launcher.run** running after reboot, so applications could be updated via REST interface.
-Any method that allows execution on reboot will do. For example, you can [use crontab](./doc/crontab-script.md).
-
-
-
 ## Direct Download link
 
 |          | Version             | Download link                                                           | 
