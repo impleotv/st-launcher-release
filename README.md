@@ -52,7 +52,7 @@ Any method that allows execution on reboot will do. For example, you can [use cr
 |:---------|:-------------------:|:------------------------------------------------------------------------|
 | **st-launcher** |  1.0.0 | [st-launcher.run](https://github.com/impleotv/st-launcher-release/releases/download/v1.0.0/st-launcher.run) | 
 
-*Released on Wed, 20 Apr, 10:51 GMT+3*
+*Released on Wed, 20 Apr, 12:04 GMT+3*
 
 ## Docs
 
