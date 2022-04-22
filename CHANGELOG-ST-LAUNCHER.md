@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/impleotv/st-launcher/compare/v1.0.5...v1.0.6) (2022-04-22)
+
+
+### Bug Fixes
+
+* Fix log file name ([d36dfb5](https://github.com/impleotv/st-launcher/commit/d36dfb5cebd371565b22bbd1a60b6ea6655d1191))
+* Update Post command ([a8b5fe1](https://github.com/impleotv/st-launcher/commit/a8b5fe1461bd62ce370353dcf670c72418b71e98))
+
 ### [1.0.5](https://github.com/impleotv/st-launcher/compare/v1.0.4...v1.0.5) (2022-04-21)
 
 

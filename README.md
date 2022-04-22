@@ -23,7 +23,7 @@ OS: Linux x64.
 1. Download 
 
 ```
-wget https://github.com/impleotv/st-launcher-release/releases/download/v1.0.5/st-launcher.run
+wget https://github.com/impleotv/st-launcher-release/releases/download/v1.0.6/st-launcher.run
 ```
 or get it from the [Releases](https://github.com/impleotv/st-launcher-release/releases)
 
@@ -50,9 +50,9 @@ Any method that allows execution on reboot will do. For example, you can [use cr
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **st-launcher** |  1.0.5 | [st-launcher.run](https://github.com/impleotv/st-launcher-release/releases/download/v1.0.5/st-launcher.run) | 
+| **st-launcher** |  1.0.6 | [st-launcher.run](https://github.com/impleotv/st-launcher-release/releases/download/v1.0.6/st-launcher.run) | 
 
-*Released on Thu, 21 Apr, 13:30 GMT+3*
+*Released on Fri, 22 Apr, 12:29 GMT+3*
 
 ## Docs
 
@@ -60,8 +60,8 @@ Current server version uses the following components:
 
 |                  | Version             | CHANGELOG                                                               | 
 |:-----------------|:-------------------:|:------------------------------------------------------------------------|
-| **README**       |  1.0.5        | [README.md](./README-ST-LAUNCHER.md)                                    | 
-| **CHANGELOG**    |  1.0.5        | [CHANGELOG.md](./CHANGELOG-ST-LAUNCHER.md)                              | 
+| **README**       |  1.0.6        | [README.md](./README-ST-LAUNCHER.md)                                    | 
+| **CHANGELOG**    |  1.0.6        | [CHANGELOG.md](./CHANGELOG-ST-LAUNCHER.md)                              | 
 
 
 ----  
