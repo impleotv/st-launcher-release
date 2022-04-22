@@ -2,7 +2,7 @@ const Mustache = require('mustache');
 const fs = require('fs');
 const MUSTACHE_MAIN = './main.mustache';
 
-var args = process.argv.slice(2);
+const args = process.argv.slice(2);
 
 if (args.length === 0) {
   console.log('Please enter a version number');
