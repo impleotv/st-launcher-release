@@ -1,7 +1,7 @@
 {
   "name": "st-launcher-release",
   "version": "1.0.6",
-  "description": "",
+  "description": "st-launcher application",
   "main": "index.js",
   "scripts": {
     "release": "standard-version",
